@@ -1,7 +1,7 @@
 # lli-drools
 
 ### 导语
-> #spring-boot-drools7
+#spring-boot-drools7
 > spring-boot整合drools7，数据库实现drools规则文件的增删改查及加载  
 > Drools默认加载 *.drl 文件,目前能想到的有两种方案加载规则信息  
 > * 1.数据库实现规则的增删改查,然后拼装规则信息,交给规则引擎编译  
