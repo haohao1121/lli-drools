@@ -53,7 +53,7 @@ public class RuleConditionServiceImpl implements RuleConditionService {
     @Override
     public List<BaseRuleConditionInfo> findRuleConditionInfoByRuleId(Long ruleId) {
         if (null == ruleId) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
         return this.baseRuleConditionInfoMapper.findRuleConditionInfoByRuleId(ruleId, null);
     }

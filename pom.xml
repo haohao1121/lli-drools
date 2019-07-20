@@ -34,13 +34,23 @@
         <lli.util.version>1.0.0-SNAPSHOT</lli.util.version>
         <!-- Drool版本定义 -->
         <drools.version>7.0.0.Final</drools.version>
+        <!-- mybatis分页插件版本 -->
+        <mybatis.pagehelper.version>1.1.3</mybatis.pagehelper.version>
+        <!-- 阿里巴巴Druid数据源版本-->
+        <alibaba.druid.version>1.1.6</alibaba.druid.version>
     </properties>
 
     <dependencies>
         <!-- 引入工具类项目工程 -->
         <dependency>
             <groupId>com.sky</groupId>
-            <artifactId>lli-base</artifactId>
+            <artifactId>lli-parent</artifactId>
+            <version>${lli.util.version}</version>
+        </dependency>
+        <!-- 引入工具类项目工程 -->
+        <dependency>
+            <groupId>com.sky</groupId>
+            <artifactId>lli-basic</artifactId>
             <version>${lli.util.version}</version>
         </dependency>
         <!-- 引入工具类项目工程 -->
@@ -48,6 +58,16 @@
             <groupId>com.sky</groupId>
             <artifactId>lli-utils</artifactId>
             <version>${lli.util.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-aop</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>fastjson</artifactId>
+                    <groupId>com.alibaba</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 
@@ -73,16 +93,37 @@
             <version>${drools.version}</version>
         </dependency>
 
+        <!-- Druid 数据连接池依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${alibaba.druid.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Page_helper 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${mybatis.pagehelper.version}</version>
+        </dependency>
+
         <!-- Spring Boot 注释处理器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- Spring Boot 测试依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>assertj-core</artifactId>
+                    <groupId>org.assertj</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

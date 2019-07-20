@@ -56,7 +56,7 @@ public class RuleActionServiceImpl implements RuleActionService {
     public List<BaseRuleActionInfo> findRuleActionListByScene(BaseRuleSceneInfo sceneInfo) {
         if (null == sceneInfo || (null == sceneInfo.getSceneId() &&
                 StringUtil.isNullOrNullValue(sceneInfo.getSceneIdentify()))) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
         return this.baseRuleActionInfoMapper.findRuleActionListByScene(sceneInfo);
     }
@@ -72,7 +72,7 @@ public class RuleActionServiceImpl implements RuleActionService {
     @Override
     public List<BaseRuleActionInfo> findRuleActionListByRule(final Long ruleId) {
         if (null == ruleId) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
 
         return this.baseRuleActionInfoMapper.findRuleActionListByRule(ruleId);
@@ -89,7 +89,7 @@ public class RuleActionServiceImpl implements RuleActionService {
     @Override
     public Integer findRuleActionCountByRuleIdAndActionType(Long ruleId) {
         if (null == ruleId) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
         return this.baseRuleActionInfoMapper.findRuleActionCountByRuleIdAndActionType(ruleId);
     }

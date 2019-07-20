@@ -47,7 +47,7 @@ public class RuleEntityItemServiceImpl implements RuleEntityItemService {
     @Override
     public BaseRuleEntityItemInfo findBaseRuleEntityItemInfoById(Long id) {
         if (null == id) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
         return this.baseRuleEntityItemInfoMapper.findBaseRuleEntityItemInfoById(id);
     }

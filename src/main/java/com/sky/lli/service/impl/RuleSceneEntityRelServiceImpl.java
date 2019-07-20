@@ -55,7 +55,7 @@ public class RuleSceneEntityRelServiceImpl implements RuleSceneEntityRelService 
         //判断参数
         if (null == baseRuleSceneInfo || (StringUtil.isNullOrNullValue(baseRuleSceneInfo.getSceneIdentify()) &&
                 null == baseRuleSceneInfo.getSceneId())) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
         //查询数据
         return this.baseRuleSceneEntityRelInfoMapper.findBaseRuleEntityListByScene(baseRuleSceneInfo);

@@ -84,7 +84,7 @@ public class RuleInfoServiceImpl implements RuleInfoService {
     public List<BaseRuleInfo> findBaseRuleListByScene(BaseRuleSceneInfo baseRuleSceneInfo) {
         if (null == baseRuleSceneInfo || (null == baseRuleSceneInfo.getSceneId() &&
                 StringUtil.isNullOrNullValue(baseRuleSceneInfo.getSceneIdentify()))) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
 
         return this.baseRuleInfoMapper.findBaseRuleListByScene(baseRuleSceneInfo);

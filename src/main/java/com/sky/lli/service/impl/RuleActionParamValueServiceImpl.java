@@ -53,7 +53,7 @@ public class RuleActionParamValueServiceImpl implements RuleActionParamValueServ
     @Override
     public BaseRuleActionParamValueInfo findRuleParamValueByActionParamId(Long paramId) {
         if (null == paramId) {
-            throw new ServiceException(ExceptionEnum.REQUEST_PARAM_MISSING);
+            throw new ServiceException(ExceptionEnum.SYS_REQUEST_PARAM_MISSING);
         }
         return this.baseRuleActionParamValueInfoMapper.findRuleParamValueByActionParamId(paramId);
     }
