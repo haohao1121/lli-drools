@@ -1,11 +1,13 @@
 package com.sky.lli;
 
 import com.sky.lli.util.spring.SpringContextUtil;
+import com.spring4all.swagger.EnableSwagger2Doc;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+@EnableSwagger2Doc
 @SpringBootApplication
 @MapperScan("com.sky.lli.dao")
 public class Application {
