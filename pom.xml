@@ -44,8 +44,8 @@
         <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 
-        <!-- 公共模块工程 -->
-        <lli.util.version>1.0.0-SNAPSHOT</lli.util.version>
+        <!-- 阿里巴巴Fastjson数据源版本-->
+        <alibaba.fastjson.version>1.2.47</alibaba.fastjson.version>
         <!-- Drool版本定义 -->
         <drools.version>7.0.0.Final</drools.version>
         <!-- mybatis分页插件版本 -->
@@ -55,35 +55,61 @@
     </properties>
 
     <dependencies>
-        <!-- 引入工具类项目工程 -->
+
+        <!-- 阿里巴巴Fastjson依赖-->
         <dependency>
-            <groupId>com.sky</groupId>
-            <artifactId>lli-parent</artifactId>
-            <version>${lli.util.version}</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${alibaba.fastjson.version}</version>
         </dependency>
-        <!-- 引入工具类项目工程 -->
+
+        <!-- Swagger 依赖 -->
         <dependency>
-            <groupId>com.sky</groupId>
-            <artifactId>lli-basic</artifactId>
-            <version>${lli.util.version}</version>
+            <groupId>com.spring4all</groupId>
+            <artifactId>swagger-spring-boot-starter</artifactId>
+            <version>1.9.0.RELEASE</version>
         </dependency>
-        <!-- 引入工具类项目工程 -->
+
         <dependency>
-            <groupId>com.sky</groupId>
-            <artifactId>lli-utils</artifactId>
-            <version>${lli.util.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Web 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
+                <!-- 排除默认Tomcat 依赖 -->
                 <exclusion>
-                    <artifactId>spring-boot-starter-aop</artifactId>
                     <groupId>org.springframework.boot</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>fastjson</artifactId>
-                    <groupId>com.alibaba</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- Spring Boot undertow 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!-- feign 依赖 -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>9.5.0</version>
+        </dependency>
 
+        <!-- 开发基础工具包 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
