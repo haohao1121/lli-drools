@@ -3,18 +3,14 @@ package com.sky.lli.exception;
 import com.sky.lli.util.restful.ResponseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.dao.DataAccessException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLSyntaxErrorException;
 
 import static com.sky.lli.util.restful.ResultResponseUtils.error;
@@ -28,7 +24,7 @@ import static com.sky.lli.util.restful.ResultResponseUtils.error;
  */
 @ControllerAdvice
 @RestController
-public class GlobalExceptionHandler implements ErrorController {
+public class GlobalExceptionHandler {
 
     private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     /**
@@ -69,23 +65,5 @@ public class GlobalExceptionHandler implements ErrorController {
         }
 
         return error(ExceptionEnum.SYS_FAILURE_EXCEPTION);
-    }
-
-    /**
-     * 本方法处理除了 500 之外的所有异常，注意 405 错误是被 ExceptionHandler 转发调用的
-     */
-    @RequestMapping(ERROR_PATH)
-    public ResponseResult<Object> handle(HttpServletResponse response) {
-        switch (HttpStatus.valueOf(response.getStatus())) {
-            case NOT_FOUND:
-                return error(ExceptionEnum.SYS_SERVICE_NOT_FOUND_ERROR);
-            default:
-                return error(ExceptionEnum.SYS_FAILURE_EXCEPTION);
-        }
-    }
-
-    @Override
-    public String getErrorPath() {
-        return ERROR_PATH;
     }
 }
