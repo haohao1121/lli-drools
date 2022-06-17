@@ -45,7 +45,7 @@
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 
         <!-- 阿里巴巴Fastjson数据源版本-->
-        <alibaba.fastjson.version>1.2.47</alibaba.fastjson.version>
+        <alibaba.fastjson.version>1.2.83</alibaba.fastjson.version>
         <!-- Drool版本定义 -->
         <drools.version>7.0.0.Final</drools.version>
         <!-- mybatis分页插件版本 -->
